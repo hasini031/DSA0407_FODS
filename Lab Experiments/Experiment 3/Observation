@@ -1,0 +1,55 @@
+EXPERIMENT 3
+AVERAGE SALE PRICE OF HOUSES USING NUMPY
+AIM:
+To calculate the average sale price of houses having more than four bedrooms using NumPy arrays.
+ALGORITHM:
+1. Start the program.
+2. Import the NumPy library.
+3. Accept the number of houses from the user.
+4. Accept the number of bedrooms, square footage, and sale price for each house.
+5. Store the house details in a list and convert it into a NumPy array.
+6. Select houses having more than four bedrooms using Boolean indexing.
+7. Calculate the average sale price of the selected houses using np.mean().
+8. Display the selected houses and their average sale price.
+9. If no houses match the condition, display an appropriate message.
+10. Stop the program.
+PYTHON CODE:
+import numpy as np
+n = int(input("Enter number of houses: "))
+house_data = []
+for i in range(n):
+    print("\nHouse", i + 1)
+    bedrooms = int(input("Enter bedrooms: "))
+    area = float(input("Enter square footage: "))
+    price = float(input("Enter sale price: "))
+    house_data.append([bedrooms, area, price])
+house_data = np.array(house_data)
+np.set_printoptions(suppress=True)
+selected = house_data[house_data[:, 0] > 4]
+print("\nHouses with more than 4 bedrooms:")
+print(selected)
+if len(selected) > 0:
+    print("Average sale price:", np.mean(selected[:, 2]))
+else:
+    print("No houses found with more than 4 bedrooms.")
+INPUT:
+Enter number of houses: 3
+House 1
+Enter bedrooms: 3
+Enter square footage: 1200
+Enter sale price: 200000
+House 2
+Enter bedrooms: 5
+Enter square footage: 1800
+Enter sale price: 350000
+House 3
+Enter bedrooms: 6
+Enter square footage: 2200
+Enter sale price: 450000
+OUTPUT:
+Houses with more than 4 bedrooms:
+[[     5.   1800. 350000.]
+ [     6.   2200. 450000.]]
+Average sale price: 400000.0
+RESULT:
+Thus, the average sale price of houses having more than four bedrooms was calculated successfully using NumPy. The average sale price is 400000.0.
