@@ -1,5 +1,4 @@
-Student Marks:
-[[85 78 92 80]
- [90 88 85 75]
- [76 82 89 91]
- [95 90 94 87]]
+Student 1: Math = 85, Science = 78, English = 92, History = 80
+Student 2: Math = 90, Science = 88, English = 85, History = 75
+Student 3: Math = 76, Science = 82, English = 89, History = 91
+Student 4: Math = 95, Science = 90, English = 94, History = 87
