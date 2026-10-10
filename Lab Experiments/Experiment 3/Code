@@ -1,0 +1,28 @@
+import numpy as np
+
+n = int(input("Enter number of houses: "))
+
+house_data = []
+
+for i in range(n):
+    print("\nHouse", i + 1)
+
+    bedrooms = int(input("Enter bedrooms: "))
+    area = float(input("Enter square footage: "))
+    price = float(input("Enter sale price: "))
+
+    house_data.append([bedrooms, area, price])
+
+house_data = np.array(house_data)
+
+np.set_printoptions(suppress=True)
+
+selected = house_data[house_data[:, 0] > 4]
+
+print("\nHouses with more than 4 bedrooms:")
+print(selected)
+
+if len(selected) > 0:
+    print("Average sale price:", np.mean(selected[:, 2]))
+else:
+    print("No houses found with more than 4 bedrooms.")
