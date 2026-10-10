@@ -1,0 +1,23 @@
+PYTHON CODE:
+
+import numpy as np
+
+sales = []
+
+print("Enter the 3x3 sales matrix:")
+
+for i in range(3):
+row = []
+for j in range(3):
+value = float(input("Enter value: "))
+row.append(value)
+sales.append(row)
+
+sales = np.array(sales)
+
+print("\nSales Matrix:")
+print(sales)
+
+average_price = np.mean(sales)
+
+print("\nAverage Price of Products:", average_price)
