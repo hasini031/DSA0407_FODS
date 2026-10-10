@@ -1,0 +1,80 @@
+FODS LAB – EXPERIMENT 2
+
+AVERAGE PRICE OF PRODUCTS USING NUMPY
+
+AIM:
+
+To create a 3 × 3 matrix by accepting nine values from the user and calculate the average of all values using NumPy.
+
+ALGORITHM:
+
+1. Start the program.
+2. Import the NumPy library.
+3. Create an empty list to store the matrix values.
+4. Use nested loops to accept nine values from the user in three rows and three columns.
+5. Add each value to its row and each completed row to the main list.
+6. Convert the list into a NumPy array using np.array().
+7. Calculate the average of all nine values using np.mean().
+8. Display the matrix and its average.
+9. Stop the program.
+
+PYTHON CODE:
+
+import numpy as np
+
+sales = []
+
+print("Enter the 3x3 sales matrix:")
+
+for i in range(3):
+    row = []
+    for j in range(3):
+        value = float(input("Enter value: "))
+        row.append(value)
+    sales.append(row)
+
+sales = np.array(sales)
+
+print("\nSales Matrix:")
+print(sales)
+
+average_price = np.mean(sales)
+
+print("\nAverage Price of Products:", average_price)
+
+INPUT:
+
+Enter the 3x3 sales matrix:
+Enter value: 100
+Enter value: 200
+Enter value: 300
+Enter value: 400
+Enter value: 500
+Enter value: 600
+Enter value: 700
+Enter value: 800
+Enter value: 900
+
+OUTPUT:
+
+Enter the 3x3 sales matrix:
+Enter value: 100
+Enter value: 200
+Enter value: 300
+Enter value: 400
+Enter value: 500
+Enter value: 600
+Enter value: 700
+Enter value: 800
+Enter value: 900
+
+Sales Matrix:
+[[100. 200. 300.]
+ [400. 500. 600.]
+ [700. 800. 900.]]
+
+Average Price of Products: 500.0
+
+RESULT:
+
+Thus, a 3 × 3 NumPy array was created successfully using user input, and the average of all nine values was calculated as 500.0.
