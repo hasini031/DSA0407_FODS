@@ -1,0 +1,66 @@
+ EXPERIMENT 1
+STUDENT MARKS ANALYSIS USING NUMPY
+AIM:
+To calculate the average score of each subject and identify the subject with the highest average score using NumPy arrays.
+ALGORITHM:
+1. Start the program.
+2. Import the NumPy library.
+3. Create a NumPy array containing the marks of four students in four subjects: Math, Science, English, and History.
+4. Store the subject names in a list.
+5. Calculate the average marks of each subject using the np.mean() function with axis=0.
+6. Display the average score of each subject using a for loop.
+7. Find the index of the highest average score using the np.argmax() function.
+8. Display the subject with the highest average score and its value.
+9. Stop the program.
+PYTHON CODE:
+import numpy as np
+student_scores = np.array([
+    [85, 78, 92, 80],
+    [90, 88, 85, 75],
+    [76, 82, 89, 91],
+    [95, 90, 94, 87]
+])
+
+subjects = ["Math", "Science", "English", "History"]
+
+print("Student Marks:")
+print(student_scores)
+
+average_scores = np.mean(student_scores, axis=0)
+
+print("\nAverage Score of Each Subject:")
+
+for i in range(len(subjects)):
+    print(subjects[i], ":", average_scores[i])
+
+highest_index = np.argmax(average_scores)
+
+print("\nSubject with the Highest Average Score:",
+      subjects[highest_index])
+
+print("Highest Average Score:", average_scores[highest_index])
+INPUT:
+The program uses the following sample marks for four students:
+Student 1: Math = 85, Science = 78, English = 92, History = 80
+Student 2: Math = 90, Science = 88, English = 85, History = 75
+Student 3: Math = 76, Science = 82, English = 89, History = 91
+Student 4: Math = 95, Science = 90, English = 94, History = 87
+OUTPUT:
+Student Marks:
+[[85 78 92 80]
+ [90 88 85 75]
+ [76 82 89 91]
+ [95 90 94 87]]
+
+Average Score of Each Subject:
+Math : 86.5
+Science : 84.5
+English : 90.0
+History : 83.25
+
+Subject with the Highest Average Score: English
+Highest Average Score: 90.0
+
+RESULT:
+
+Thus, the average marks of all four subjects were calculated successfully using NumPy, and English achieved the highest average score of 90.0.
