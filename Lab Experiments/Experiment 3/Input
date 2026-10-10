@@ -1,1 +1,18 @@
+INPUT:
 
+Enter number of houses: 3
+
+House 1
+Enter bedrooms: 3
+Enter square footage: 1200
+Enter sale price: 200000
+
+House 2
+Enter bedrooms: 5
+Enter square footage: 1800
+Enter sale price: 350000
+
+House 3
+Enter bedrooms: 6
+Enter square footage: 2200
+Enter sale price: 450000
