@@ -1,0 +1,21 @@
+import numpy as np
+
+sales_data = []
+
+for i in range(4):
+    sales = float(input("Enter sales for Quarter " + str(i + 1) + ": "))
+    sales_data.append(sales)
+
+sales_data = np.array(sales_data)
+
+total_sales = np.sum(sales_data)
+
+percentage_increase = (
+    (sales_data[3] - sales_data[0]) / sales_data[0]
+) * 100
+
+
+print("\nQuarterly Sales:", sales_data)
+print("Total Annual Sales:", total_sales)
+print("Percentage Increase from Q1 to Q4:",
+      percentage_increase, "%")
