@@ -1,0 +1,31 @@
+import numpy as np
+
+n = int(input("Enter the number of car models: "))
+
+fuel_efficiency = []
+
+for i in range(n):
+    mileage = float(input(
+        "Enter fuel efficiency of Car " + str(i + 1) + ": "
+    ))
+    fuel_efficiency.append(mileage)
+
+fuel_efficiency = np.array(fuel_efficiency)
+
+average_efficiency = np.mean(fuel_efficiency)
+
+print("\nFuel Efficiency:", fuel_efficiency)
+print("Average Fuel Efficiency:", average_efficiency)
+
+car1 = int(input("Enter first car number: "))
+car2 = int(input("Enter second car number: "))
+
+if 1 <= car1 <= n and 1 <= car2 <= n and car1 != car2:
+    first = fuel_efficiency[car1 - 1]
+    second = fuel_efficiency[car2 - 1]
+
+    percentage_improvement = ((second - first) / first) * 100
+
+    print("Percentage Improvement:", percentage_improvement, "%")
+else:
+    print("Invalid car numbers. Enter two different valid car numbers.")
