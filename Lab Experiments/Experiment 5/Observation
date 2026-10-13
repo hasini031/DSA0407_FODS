@@ -1,0 +1,63 @@
+EXPERIMENT 5: CAR FUEL EFFICIENCY ANALYSIS USING NUMPY
+
+AIM:
+To calculate the average fuel efficiency of different car models and determine the percentage improvement in fuel efficiency between two car models using NumPy.
+ALGORITHM:
+Start the program and import the NumPy library.
+Accept the number of car models and their fuel efficiency values from the user.
+Store the values in a NumPy array.
+Calculate the average fuel efficiency using np.mean().
+Accept two different car numbers and calculate the percentage improvement in fuel efficiency.
+Display the fuel efficiency values, average efficiency, and percentage improvement. Stop the program.
+PYTHON CODE:
+import numpy as np
+n = int(input("Enter the number of car models: "))
+fuel_efficiency = []
+for i in range(n):
+mileage = float(input(
+"Enter fuel efficiency of Car " + str(i + 1) + ": "
+))
+fuel_efficiency.append(mileage)
+fuel_efficiency = np.array(fuel_efficiency)
+average_efficiency = np.mean(fuel_efficiency)
+print("\nFuel Efficiency:", fuel_efficiency)
+print("Average Fuel Efficiency:", average_efficiency)
+car1 = int(input("Enter first car number: "))
+car2 = int(input("Enter second car number: "))
+
+if 1 <= car1 <= n and 1 <= car2 <= n and car1 != car2:
+first = fuel_efficiency[car1 - 1]
+second = fuel_efficiency[car2 - 1]
+
+percentage_improvement = ((second - first) / first) * 100
+
+print("Percentage Improvement:", percentage_improvement, "%")
+
+else:
+print("Invalid car numbers. Enter two different valid car numbers.")
+
+INPUT:
+
+Enter the number of car models: 3
+
+Enter fuel efficiency of Car 1: 25
+
+Enter fuel efficiency of Car 2: 30
+
+Enter fuel efficiency of Car 3: 35
+
+Enter first car number: 1
+
+Enter second car number: 2
+
+OUTPUT:
+
+Fuel Efficiency: [25. 30. 35.]
+
+Average Fuel Efficiency: 30.0
+
+Percentage Improvement: 20.0 %
+
+RESULT:
+
+Thus, the average fuel efficiency of the car models was calculated successfully using NumPy. The percentage improvement in fuel efficiency from Car 1 (25 MPG) to Car 2 (30 MPG) was found to be 20%.
