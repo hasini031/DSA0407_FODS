@@ -1,0 +1,65 @@
+## Aim
+To analyze property data using Pandas and determine average listing prices by location, count properties with more than four bedrooms, and find the property with the largest area.
+
+## Algorithm
+1. Start the program.
+2. Import the Pandas library.
+3. Create a DataFrame containing property details.
+4. Group properties by location and calculate the average price.
+5. Count properties with more than four bedrooms.
+6. Find the property with the largest area.
+7. Display all results.
+8. Stop the program.
+
+## Code
+
+```python
+import pandas as pd
+
+property_data = {
+    "Property_ID": [1, 2, 3, 4, 5],
+    "Location": ["Chennai", "Nellore", "Chennai",
+                 "Hyderabad", "Nellore"],
+    "Bedrooms": [3, 5, 4, 6, 2],
+    "Area": [1200, 1800, 1500, 2500, 1000],
+    "Price": [5000000, 7000000, 6000000,
+              9000000, 4000000]
+}
+
+df = pd.DataFrame(property_data)
+
+print("Average Price by Location:")
+print(df.groupby("Location")["Price"].mean())
+
+print("\\nProperties with More Than 4 Bedrooms:")
+print(len(df[df["Bedrooms"] > 4]))
+
+print("\\nProperty with Largest Area:")
+print(df.loc[df["Area"].idxmax()])
+```
+
+## Input
+Property details are provided in the DataFrame.
+
+## Output
+
+```text
+Average Price by Location:
+Location
+Chennai      5500000.0
+Hyderabad    9000000.0
+Nellore      5500000.0
+
+Properties with More Than 4 Bedrooms:
+2
+
+Property with Largest Area:
+Property_ID          4
+Location      Hyderabad
+Bedrooms              6
+Area               2500
+Price           9000000
+```
+
+## Result
+The average listing price for each location, the number of properties with more than four bedrooms, and the property with the largest area were found successfully.
