@@ -1,0 +1,59 @@
+## Aim
+To calculate the total cost of a customer's purchase, including discount and tax, using Python arithmetic operations.
+
+## Algorithm
+1. Start the program.
+2. Store item prices and quantities in lists.
+3. Calculate the total price of all items.
+4. Calculate the discount amount.
+5. Subtract the discount from the total price.
+6. Calculate tax on the discounted amount.
+7. Add tax to obtain the final bill.
+8. Display the total price, discount, tax, and final bill.
+9. Stop the program.
+
+## Code
+
+```python
+prices = [100, 200, 50]
+quantities = [2, 1, 3]
+
+discount_rate = 10
+tax_rate = 5
+
+total = 0
+
+for i in range(len(prices)):
+    total = total + prices[i] * quantities[i]
+
+discount = total * discount_rate / 100
+after_discount = total - discount
+tax = after_discount * tax_rate / 100
+final_total = after_discount + tax
+
+print("Total Price:", total)
+print("Discount:", discount)
+print("Tax:", tax)
+print("Final Bill:", final_total)
+```
+
+## Input
+Prices = [100, 200, 50]
+
+Quantities = [2, 1, 3]
+
+Discount rate = 10%
+
+Tax rate = 5%
+
+## Output
+
+```text
+Total Price: 550
+Discount: 55.0
+Tax: 24.75
+Final Bill: 519.75
+```
+
+## Result
+The total purchase cost was calculated successfully by applying the discount and tax rates.
