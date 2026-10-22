@@ -1,0 +1,9 @@
+Input:
+
+Prices = [100, 200, 50]
+
+Quantities = [2, 1, 3]
+
+Discount rate = 10%
+
+Tax rate = 5%
