@@ -1,0 +1,20 @@
+import pandas as pd
+
+data = {
+    "Product": ["Phone", "Laptop", "Phone", "Mouse",
+                "Laptop", "Keyboard", "Mouse", "Tablet"],
+    "Quantity": [10, 5, 8, 15, 7, 12, 6, 9],
+    "Date": ["2026-10-02", "2026-10-05", "2026-10-08",
+             "2026-10-10", "2026-10-12", "2026-10-15",
+             "2026-10-18", "2026-10-20"]
+}
+
+df = pd.DataFrame(data)
+df["Date"] = pd.to_datetime(df["Date"])
+
+total_sales = df.groupby("Product")["Quantity"].sum()
+
+top_5 = total_sales.sort_values(ascending=False).head(5)
+
+print("Top 5 Best-Selling Products:")
+print(top_5)
