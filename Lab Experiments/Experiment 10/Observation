@@ -1,0 +1,53 @@
+## Aim
+To create line and bar plots using Matplotlib to visualize and compare monthly sales data.
+
+## Algorithm
+1. Start the program.
+2. Import the Matplotlib library.
+3. Store the month names and corresponding sales values in lists.
+4. Use `plt.plot()` to create a line plot.
+5. Add a title and labels to the line plot.
+6. Display the line plot.
+7. Use `plt.bar()` to create a bar plot.
+8. Add a title and labels to the bar plot.
+9. Display the bar plot.
+10. Stop the program.
+
+## Code
+
+```python
+import matplotlib.pyplot as plt
+
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+sales = [10000, 15000, 12000, 18000, 20000, 17000]
+
+# Line Plot
+plt.plot(months, sales, marker="o")
+plt.title("Monthly Sales - Line Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+
+# Bar Plot
+plt.bar(months, sales)
+plt.title("Monthly Sales - Bar Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+```
+
+## Input
+Months = Jan, Feb, Mar, Apr, May, Jun
+
+Sales = 10000, 15000, 12000, 18000, 20000, 17000
+
+## Output
+Two graph windows are displayed:
+
+1. **Line plot:** Shows the trend of sales across six months.
+2. **Bar plot:** Compares sales values across six months.
+
+May has the highest sales of 20,000, and January has the lowest sales of 10,000.
+
+## Result
+Line and bar plots were created successfully using Matplotlib to visualize monthly sales data.
