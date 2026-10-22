@@ -1,0 +1,74 @@
+## Aim
+To analyze customer orders using Pandas DataFrame operations and find order counts, average product quantities, and order dates.
+
+## Algorithm
+1. Start the program.
+2. Import the Pandas library.
+3. Create a DataFrame containing customer IDs, order dates, product names, and quantities.
+4. Group the data by customer ID and count the orders.
+5. Group the data by product and calculate average quantity.
+6. Find the earliest and latest order dates.
+7. Display the results.
+8. Stop the program.
+
+## Code
+
+```python
+import pandas as pd
+
+order_data = {
+    "Customer_ID": [101, 102, 101, 103, 102],
+    "Order_Date": ["2026-01-05", "2026-01-10",
+                   "2026-01-15", "2026-01-20",
+                   "2026-01-25"],
+    "Product": ["Phone", "Laptop", "Phone",
+                "Mouse", "Laptop"],
+    "Quantity": [2, 1, 3, 4, 2]
+}
+
+df = pd.DataFrame(order_data)
+df["Order_Date"] = pd.to_datetime(df["Order_Date"])
+
+print("Orders by Customer:")
+print(df.groupby("Customer_ID").size())
+
+print("\\nAverage Quantity per Product:")
+print(df.groupby("Product")["Quantity"].mean())
+
+print("\\nEarliest Order Date:")
+print(df["Order_Date"].min())
+
+print("\\nLatest Order Date:")
+print(df["Order_Date"].max())
+```
+
+## Input
+Customer IDs: 101, 102, 101, 103, 102
+
+Products: Phone, Laptop, Phone, Mouse, Laptop
+
+Quantities: 2, 1, 3, 4, 2
+
+## Output
+
+```text
+Orders by Customer:
+Customer_ID
+101    2
+102    2
+103    1
+
+Average Quantity per Product:
+Laptop    1.5
+Mouse     4.0
+Phone     2.5
+
+Earliest Order Date:
+2026-01-05
+
+Latest Order Date:
+2026-01-25
+```
+
+## Result
+The number of orders per customer, average quantity per product, and earliest and latest order dates were determined successfully using Pandas.
