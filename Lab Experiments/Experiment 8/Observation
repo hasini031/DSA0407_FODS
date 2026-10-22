@@ -1,0 +1,57 @@
+## Aim
+To identify the top five best-selling products based on total quantity sold using Pandas.
+
+## Algorithm
+1. Start the program.
+2. Import the Pandas library.
+3. Create a DataFrame containing product names, quantities, and sales dates.
+4. Group the data by product name.
+5. Calculate the total quantity sold for each product.
+6. Sort the quantities in descending order.
+7. Display the top five products.
+8. Stop the program.
+
+## Code
+
+```python
+import pandas as pd
+
+data = {
+    "Product": ["Phone", "Laptop", "Phone", "Mouse",
+                "Laptop", "Keyboard", "Mouse", "Tablet"],
+    "Quantity": [10, 5, 8, 15, 7, 12, 6, 9],
+    "Date": ["2026-10-02", "2026-10-05",
+             "2026-10-08", "2026-10-10",
+             "2026-10-12", "2026-10-15",
+             "2026-10-18", "2026-10-20"]
+}
+
+df = pd.DataFrame(data)
+df["Date"] = pd.to_datetime(df["Date"])
+
+total_sales = df.groupby("Product")["Quantity"].sum()
+top_5 = total_sales.sort_values(
+    ascending=False
+).head(5)
+
+print("Top 5 Best-Selling Products:")
+print(top_5)
+```
+
+## Input
+Product names, quantities, and dates are provided in the DataFrame.
+
+## Output
+
+```text
+Top 5 Best-Selling Products:
+Product
+Phone       18
+Mouse       21
+Keyboard    12
+Laptop      12
+Tablet       9
+```
+
+## Result
+The products were grouped, ranked according to total quantity sold, and the top five best-selling products were displayed.
