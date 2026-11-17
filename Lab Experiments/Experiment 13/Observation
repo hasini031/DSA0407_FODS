@@ -1,1 +1,55 @@
+## Aim
+To calculate the frequency distribution of words in a text using Python.
+
+## Algorithm
+1. Start the program and import Counter and re modules.
+2. Store the given paragraph in a string.
+3. Convert all words into lowercase.
+4. Extract individual words from the text.
+5. Count the frequency of each word using Counter.
+6. Display each word and its frequency.
+
+## Input
+
+```text
+Python is easy to learn.
+Python is useful for data analysis.
+```
+
+## Output
+
+```text
+Word Frequency Distribution:
+python : 2
+is : 2
+easy : 1
+to : 1
+learn : 1
+useful : 1
+for : 1
+data : 1
+analysis : 1
+```
+
+## Code
+
+```python
+from collections import Counter
+import re
+
+text = """Python is easy to learn.
+Python is useful for data analysis."""
+
+words = re.findall(r'\b\w+\b', text.lower())
+
+frequency = Counter(words)
+
+print("Word Frequency Distribution:")
+
+for word, count in frequency.items():
+    print(word, ":", count)
+```
+
+## Result
+The frequency of each word in the given text was calculated and displayed successfully.
 
