@@ -1,1 +1,56 @@
+## Aim
+To calculate the frequency distribution of likes received by social media posts using Pandas.
+
+## Algorithm
+1. Start the program and import Pandas.
+2. Create a DataFrame containing post IDs and likes.
+3. Calculate the frequency of likes using `value_counts()`.
+4. Sort the frequency values in ascending order.
+5. Display the frequency distribution.
+6. Stop the program.
+
+## Input
+
+| Post ID | Likes |
+|---|---:|
+| 1 | 100 |
+| 2 | 200 |
+| 3 | 100 |
+| 4 | 300 |
+| 5 | 200 |
+| 6 | 100 |
+| 7 | 400 |
+| 8 | 300 |
+
+## Output
+
+```text
+Frequency Distribution of Likes:
+Likes
+100    3
+200    2
+300    2
+400    1
+```
+
+## Code
+
+```python
+import pandas as pd
+
+data = {
+    "Post_ID": [1, 2, 3, 4, 5, 6, 7, 8],
+    "Likes": [100, 200, 100, 300, 200, 100, 400, 300]
+}
+
+df = pd.DataFrame(data)
+
+frequency = df["Likes"].value_counts().sort_index()
+
+print("Frequency Distribution of Likes:")
+print(frequency)
+```
+
+## Result
+The frequency distribution of likes received by social media posts was calculated successfully using Pandas.
 
