@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+months = [1, 2, 3, 4, 5, 6]
+sales = [10000, 12000, 15000, 14000, 18000, 20000]
+
+m, c = np.polyfit(months, sales, 1)
+prediction = m * 7 + c
+
+print("Predicted Sales:", round(prediction, 2))
+
+plt.plot(months, sales, marker="o")
+plt.title("Monthly Sales - Line Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+
+plt.scatter(months, sales)
+plt.title("Monthly Sales - Scatter Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+
+plt.bar(months, sales)
+plt.title("Monthly Sales - Bar Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
