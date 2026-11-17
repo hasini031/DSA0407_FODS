@@ -1,0 +1,44 @@
+## Code
+
+```python
+from collections import Counter
+import re
+
+text = """Python is easy to learn.
+Python is useful for data analysis."""
+
+words = re.findall(r'\b\w+\b', text.lower())
+
+frequency = Counter(words)
+
+print("Word Frequency Distribution:")
+
+for word, count in frequency.items():
+    print(word, ":", count)
+```
+
+## Input
+
+```text
+Python is easy to learn.
+Python is useful for data analysis.
+```
+
+## Output
+
+```text
+Word Frequency Distribution:
+python : 2
+is : 2
+easy : 1
+to : 1
+learn : 1
+useful : 1
+for : 1
+data : 1
+analysis : 1
+```
+
+## Observation
+
+The text was processed successfully, and the frequency of each word was calculated and displayed.
