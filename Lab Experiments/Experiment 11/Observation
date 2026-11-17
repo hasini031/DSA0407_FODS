@@ -1,1 +1,64 @@
+## Aim
+To create line, scatter and bar plots using Matplotlib and predict sales for the next month.
+
+## Algorithm
+1. Start the program and import NumPy and Matplotlib.
+2. Store monthly sales values in lists.
+3. Use linear regression to predict next month's sales.
+4. Create line, scatter and bar plots using Matplotlib.
+5. Add titles and labels to the plots.
+6. Display the prediction and all three plots.
+
+## Input
+
+Months = [1, 2, 3, 4, 5, 6]
+
+Sales = [10000, 12000, 15000, 14000, 18000, 20000]
+
+## Output
+
+```text
+Predicted Sales: 21533.33
+```
+
+Three graphs are displayed:
+- Line plot
+- Scatter plot
+- Bar plot
+
+## Code
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+months = [1, 2, 3, 4, 5, 6]
+sales = [10000, 12000, 15000, 14000, 18000, 20000]
+
+m, c = np.polyfit(months, sales, 1)
+prediction = m * 7 + c
+
+print("Predicted Sales:", round(prediction, 2))
+
+plt.plot(months, sales, marker="o")
+plt.title("Monthly Sales - Line Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+
+plt.scatter(months, sales)
+plt.title("Monthly Sales - Scatter Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+
+plt.bar(months, sales)
+plt.title("Monthly Sales - Bar Plot")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+```
+
+## Result
+Line, scatter and bar plots were created successfully, and next month's sales were predicted using linear regression.
 
