@@ -1,0 +1,19 @@
+
+
+import pandas as pd
+
+data = {
+    "Customer_ID": [101, 102, 103, 104, 105, 106, 107, 108],
+    "Age": [20, 25, 30, 20, 25, 35, 30, 20],
+    "Purchase": ["Yes", "Yes", "Yes", "Yes",
+                 "Yes", "Yes", "Yes", "Yes"]
+}
+
+df = pd.DataFrame(data)
+
+customers = df[df["Purchase"] == "Yes"]
+
+frequency = customers["Age"].value_counts().sort_index()
+
+print("Frequency Distribution of Customer Ages:")
+print(frequency)
