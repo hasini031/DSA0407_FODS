@@ -1,1 +1,63 @@
+## Aim
+To calculate the frequency distribution of ages of customers who made purchases in the past month using Pandas.
+
+## Algorithm
+1. Start the program and import Pandas.
+2. Create a DataFrame containing customer IDs, ages and order dates.
+3. Convert order dates into datetime format.
+4. Select customers who made purchases in the past month.
+5. Calculate the frequency of customer ages using `value_counts()`.
+6. Display the frequency distribution.
+
+## Input
+
+| Customer ID | Age | Order Date |
+|---|---:|---|
+| 101 | 20 | 2026-10-20 |
+| 102 | 25 | 2026-10-25 |
+| 103 | 30 | 2026-11-01 |
+| 104 | 20 | 2026-11-05 |
+| 105 | 25 | 2026-11-10 |
+| 106 | 35 | 2026-11-15 |
+
+## Output
+
+```text
+Frequency Distribution of Customer Ages:
+Age
+20    2
+25    2
+30    1
+35    1
+```
+
+## Code
+
+```python
+import pandas as pd
+
+data = {
+    "Customer_ID": [101, 102, 103, 104, 105, 106],
+    "Age": [20, 25, 30, 20, 25, 35],
+    "Order_Date": ["2026-10-20", "2026-10-25",
+                   "2026-11-01", "2026-11-05",
+                   "2026-11-10", "2026-11-15"]
+}
+
+df = pd.DataFrame(data)
+
+df["Order_Date"] = pd.to_datetime(df["Order_Date"])
+
+one_month_ago = pd.Timestamp.today() - pd.DateOffset(months=1)
+
+recent = df[df["Order_Date"] >= one_month_ago]
+
+frequency = recent["Age"].value_counts().sort_index()
+
+print("Frequency Distribution of Customer Ages:")
+print(frequency)
+```
+
+## Result
+The frequency distribution of customer ages who made purchases in the past month was calculated successfully using Pandas.
 
