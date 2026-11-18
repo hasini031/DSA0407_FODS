@@ -1,1 +1,25 @@
+import pandas as pd
+from scipy import stats
+import numpy as np
 
+df = pd.read_csv("customer_reviews.csv")
+
+ratings = df["rating"].dropna()
+
+n = len(ratings)
+
+mean = ratings.mean()
+std = ratings.std()
+
+sem = std / np.sqrt(n)
+
+confidence = stats.t.interval(
+    0.95,
+    df=n-1,
+    loc=mean,
+    scale=sem
+)
+
+print("Mean Rating:", mean)
+print("Standard Deviation:", std)
+print("95% Confidence Interval:", confidence)
