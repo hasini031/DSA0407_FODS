@@ -1,1 +1,23 @@
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
 
+iris = load_iris()
+
+X = iris.data
+y = iris.target
+
+model = DecisionTreeClassifier(random_state=42)
+
+model.fit(X, y)
+
+sl = float(input("Enter sepal length: "))
+sw = float(input("Enter sepal width: "))
+pl = float(input("Enter petal length: "))
+pw = float(input("Enter petal width: "))
+
+flower = [[sl, sw, pl, pw]]
+
+prediction = model.predict(flower)
+
+print("Predicted Iris Species:",
+      iris.target_names[prediction[0]])
