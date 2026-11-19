@@ -1,1 +1,48 @@
+AIM:
+To analyze customer feedback and identify the most frequently used words.
 
+ALGORITHM:
+1. Import Pandas, Matplotlib and Counter.
+2. Read customer feedback from a CSV file.
+3. Convert feedback into lowercase.
+4. Remove common stop words.
+5. Find the most frequent words.
+6. Display the results using a bar chart.
+
+CODE:
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter
+import re
+
+df = pd.read_csv("data.csv")
+text = " ".join(df["feedback"].dropna()).lower()
+
+words = re.findall(r'\b\w+\b', text)
+stop = ["the", "is", "and", "a", "of"]
+words = [w for w in words if w not in stop]
+
+n = int(input("Enter N: "))
+top = Counter(words).most_common(n)
+
+print(top)
+plt.bar([x[0] for x in top], [x[1] for x in top])
+plt.show()
+
+INPUT:
+CSV file (data.csv):
+feedback
+The product is very good
+Good quality and excellent service
+The product quality is good
+
+Enter N: 5
+
+OUTPUT:
+[('good', 3), ('product', 2), ('quality', 2),
+('very', 1), ('excellent', 1)]
+
+A bar chart displaying the top 5 words is generated.
+
+RESULT:
+Customer feedback was analyzed and the most frequent words were displayed successfully.
