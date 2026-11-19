@@ -1,1 +1,41 @@
+AIM:
+To compare the performance of two website designs using A/B testing.
 
+ALGORITHM:
+1. Import NumPy and SciPy.
+2. Store conversion data for designs A and B.
+3. Calculate conversion rates.
+4. Perform an independent t-test.
+5. Compare the p-value with 0.05.
+6. Display the result.
+
+CODE:
+import numpy as np
+from scipy import stats
+
+A = [1,0,1,1,0,1,0,1,1,0]
+B = [1,1,1,1,0,1,1,1,0,1]
+
+print("Mean A:", np.mean(A)*100, "%")
+print("Mean B:", np.mean(B)*100, "%")
+
+t, p = stats.ttest_ind(A, B, equal_var=False)
+print("P-value:", p)
+
+if p < 0.05:
+    print("Significant difference")
+else:
+    print("No significant difference")
+
+INPUT:
+Design A: 1,0,1,1,0,1,0,1,1,0
+Design B: 1,1,1,1,0,1,1,1,0,1
+
+OUTPUT:
+Mean A: 60.0 %
+Mean B: 80.0 %
+P-value: 0.329
+No significant difference
+
+RESULT:
+A/B testing was performed successfully to compare the conversion rates of two website designs.
