@@ -1,1 +1,36 @@
+AIM:
+To implement the K-Nearest Neighbors classification algorithm using Python.
 
+ALGORITHM:
+1. Import required libraries.
+2. Load the Iris dataset.
+3. Split the dataset into training and testing data.
+4. Create a KNN classifier.
+5. Train the model using training data.
+6. Predict and calculate accuracy.
+
+CODE:
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+X, y = load_iris(return_X_y=True)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y)
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X_train, y_train)
+
+pred = model.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, pred)*100, "%")
+
+INPUT:
+Iris dataset containing flower measurements and species labels.
+
+OUTPUT:
+Accuracy: 100.0 %
+
+RESULT:
+The K-Nearest Neighbors classifier was implemented successfully.
