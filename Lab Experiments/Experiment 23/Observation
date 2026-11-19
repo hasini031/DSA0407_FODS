@@ -1,1 +1,38 @@
+AIM:
+To perform hypothesis testing on clinical trial data using Python.
 
+ALGORITHM:
+1. Import SciPy.
+2. Store blood pressure readings before and after treatment.
+3. Apply a paired t-test.
+4. Calculate the t-statistic and p-value.
+5. Compare the p-value with 0.05.
+6. Display the conclusion.
+
+CODE:
+from scipy import stats
+
+before = [150,160,155,170,165,158,162,168,172,160]
+after = [140,150,148,158,155,150,154,160,163,152]
+
+t, p = stats.ttest_rel(before, after)
+
+print("T-statistic:", t)
+print("P-value:", p)
+
+if p < 0.05:
+    print("Significant result")
+else:
+    print("No significant result")
+
+INPUT:
+Before treatment: 150,160,155,170,165,158,162,168,172,160
+After treatment: 140,150,148,158,155,150,154,160,163,152
+
+OUTPUT:
+T-statistic: 19.09
+P-value: 0.0000000137
+Significant result
+
+RESULT:
+Hypothesis testing was performed successfully and a significant difference was found.
