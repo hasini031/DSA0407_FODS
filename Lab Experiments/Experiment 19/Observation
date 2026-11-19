@@ -1,1 +1,38 @@
+AIM:
+To calculate the 95% confidence interval for blood pressure reduction in drug and placebo groups.
 
+ALGORITHM:
+1. Import NumPy and SciPy.
+2. Store drug and placebo group data.
+3. Calculate the mean of each group.
+4. Calculate the standard error.
+5. Find the 95% confidence interval.
+6. Display the results.
+
+CODE:
+import numpy as np
+from scipy import stats
+
+drug = [12,14,10,15,13,11,16,12,14,13]
+placebo = [5,7,6,4,8,5,6,7,5,4]
+
+for data in [drug, placebo]:
+    mean = np.mean(data)
+    error = stats.sem(data)
+    margin = stats.t.ppf(0.975, len(data)-1) * error
+    print("Mean:", mean)
+    print("95% CI:", mean-margin, "to", mean+margin)
+
+INPUT:
+Drug group: 12,14,10,15,13,11,16,12,14,13
+Placebo group: 5,7,6,4,8,5,6,7,5,4
+
+OUTPUT:
+Mean: 13.0
+95% CI: 11.69 to 14.31
+
+Mean: 5.7
+95% CI: 4.74 to 6.66
+
+RESULT:
+The 95% confidence intervals for both drug and placebo groups were calculated successfully.
