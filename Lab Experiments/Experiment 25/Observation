@@ -1,1 +1,36 @@
+AIM:
+To classify Iris flowers using the Decision Tree algorithm.
 
+ALGORITHM:
+1. Import required libraries.
+2. Load the Iris dataset.
+3. Split the dataset into training and testing data.
+4. Create a Decision Tree classifier.
+5. Train the model.
+6. Predict the test data and calculate accuracy.
+
+CODE:
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+X, y = load_iris(return_X_y=True)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y)
+
+model = DecisionTreeClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+pred = model.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, pred)*100, "%")
+
+INPUT:
+Iris dataset containing flower measurements and species labels.
+
+OUTPUT:
+Accuracy: 93.33 %
+
+RESULT:
+The Decision Tree classifier was implemented successfully to classify Iris flowers.
