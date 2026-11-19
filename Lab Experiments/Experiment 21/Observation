@@ -1,1 +1,46 @@
+AIM:
+To calculate the 95% confidence interval for rare element concentration.
 
+ALGORITHM:
+1. Import Pandas and SciPy.
+2. Read concentration data from a CSV file.
+3. Calculate the mean concentration.
+4. Calculate the standard error.
+5. Find the 95% confidence interval.
+6. Display the results.
+
+CODE:
+import pandas as pd
+from scipy import stats
+
+df = pd.read_csv("rare_elements.csv")
+x = df["concentration"]
+
+mean = x.mean()
+error = stats.sem(x)
+margin = stats.t.ppf(0.975, len(x)-1) * error
+
+print("Mean:", mean)
+print("95% CI:", mean-margin, "to", mean+margin)
+
+INPUT:
+CSV file (rare_elements.csv):
+
+concentration
+2.1
+2.3
+2.2
+2.4
+2.5
+2.2
+2.3
+2.1
+2.4
+2.2
+
+OUTPUT:
+Mean: 2.27
+95% CI: 2.17 to 2.37
+
+RESULT:
+The 95% confidence interval for rare element concentration was calculated successfully.
