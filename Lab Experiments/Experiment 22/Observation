@@ -1,1 +1,46 @@
+AIM:
+To calculate the 95% confidence interval for customer ratings.
 
+ALGORITHM:
+1. Import Pandas and SciPy.
+2. Read customer ratings from a CSV file.
+3. Calculate the mean rating.
+4. Calculate the standard error.
+5. Find the 95% confidence interval.
+6. Display the results.
+
+CODE:
+import pandas as pd
+from scipy import stats
+
+df = pd.read_csv("customer_reviews.csv")
+x = df["rating"]
+
+mean = x.mean()
+error = stats.sem(x)
+margin = stats.t.ppf(0.975, len(x)-1) * error
+
+print("Mean:", mean)
+print("95% CI:", mean-margin, "to", mean+margin)
+
+INPUT:
+CSV file (customer_reviews.csv):
+
+rating
+4
+5
+3
+4
+5
+4
+4
+3
+5
+4
+
+OUTPUT:
+Mean: 4.1
+95% CI: 3.57 to 4.63
+
+RESULT:
+The 95% confidence interval for customer ratings was calculated successfully.
