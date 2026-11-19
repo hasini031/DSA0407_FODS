@@ -1,1 +1,51 @@
+AIM:
+To perform statistical analysis of age and body fat data using Python.
 
+ALGORITHM:
+1. Import Pandas, Matplotlib and SciPy.
+2. Create a dataset containing age and body fat values.
+3. Calculate mean, median and standard deviation.
+4. Draw a box plot.
+5. Draw a scatter plot.
+6. Generate Q-Q plots to check normality.
+
+CODE:
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import stats
+
+df = pd.DataFrame({
+"Age": [23,23,27,27,39,41,47,49,50,52,54,54,56,57,58,58,60,61],
+"Fat": [9.5,26.5,7.8,17.8,31.4,25.9,27.4,27.2,31.2,34.6,42.5,28.8,33.4,30.2,34.1,32.9,41.2,35.7]
+})
+
+print(df.agg(["mean","median","std"]))
+df.boxplot()
+plt.show()
+
+plt.scatter(df.Age, df.Fat)
+plt.show()
+
+stats.probplot(df.Age, plot=plt)
+plt.show()
+
+stats.probplot(df.Fat, plot=plt)
+plt.show()
+
+INPUT:
+Age and body fat values given in the code.
+
+OUTPUT:
+             Age       Fat
+mean       46.44      28.78
+median     51.00      30.70
+std        13.22       9.25
+
+Four graphs are displayed:
+1. Box plot
+2. Scatter plot
+3. Q-Q plot for Age
+4. Q-Q plot for Body Fat
+
+RESULT:
+Statistical analysis and graphical representation of age and body fat data were performed successfully.
