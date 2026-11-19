@@ -1,1 +1,34 @@
+AIM:
+To find the frequency of words in customer reviews using Python.
 
+ALGORITHM:
+1. Import Counter and re modules.
+2. Store customer reviews in a list.
+3. Convert all reviews into lowercase.
+4. Extract words using regular expressions.
+5. Count and display the frequency of each word.
+
+CODE:
+import re
+from collections import Counter
+
+reviews = ["Good product", "Good quality",
+           "Excellent product"]
+
+words = re.findall(r'\b\w+\b', " ".join(reviews).lower())
+freq = Counter(words)
+
+print(freq)
+
+INPUT:
+Customer reviews:
+Good product
+Good quality
+Excellent product
+
+OUTPUT:
+Counter({'good': 2, 'product': 2,
+'quality': 1, 'excellent': 1})
+
+RESULT:
+The frequency distribution of customer review words was calculated successfully.
