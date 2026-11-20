@@ -1,0 +1,31 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "Name": ["A","B","C","D","E","F"],
+    "Age": [22,25,28,30,24,35],
+    "Position": ["Forward","Midfielder","Defender",
+                 "Forward","Defender","Goalkeeper"],
+    "Goals": [20,10,5,25,8,2],
+    "Salary": [5000,4000,3000,6000,3500,2500]
+})
+
+df.to_csv("players.csv",index=False)
+df = pd.read_csv("players.csv")
+
+print("Top 5 Goals:")
+print(df.nlargest(5,"Goals")[["Name","Goals"]])
+
+print("Top 5 Salaries:")
+print(df.nlargest(5,"Salary")[["Name","Salary"]])
+
+avg = df["Age"].mean()
+print("Average Age:",avg)
+
+print("Above Average Age:")
+print(df[df["Age"]>avg]["Name"])
+
+df["Position"].value_counts().plot(kind="bar")
+plt.xlabel("Position")
+plt.ylabel("Number of Players")
+plt.show()
