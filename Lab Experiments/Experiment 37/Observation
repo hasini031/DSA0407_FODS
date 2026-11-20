@@ -1,0 +1,42 @@
+AIM:
+To identify the correlation between students' study time and exam scores using visualization.
+
+ALGORITHM:
+1. Import Pandas and Matplotlib.
+2. Create study time and exam score data.
+3. Calculate correlation.
+4. Draw a scatter plot.
+5. Draw a line plot.
+6. Display the correlation value.
+
+CODE:
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "Study": [1,2,3,4,5,6],
+    "Score": [40,45,55,65,75,85]
+})
+
+print("Correlation:", df["Study"].corr(df["Score"]))
+
+plt.scatter(df["Study"],df["Score"])
+plt.xlabel("Study Hours")
+plt.ylabel("Exam Score")
+plt.title("Study Time vs Exam Score")
+plt.show()
+
+plt.plot(df["Study"],df["Score"],marker="o")
+plt.show()
+
+INPUT:
+Study hours: 1,2,3,4,5,6
+Exam scores: 40,45,55,65,75,85
+
+OUTPUT:
+Correlation: Approximately 0.99
+
+Scatter plot and line plot are displayed.
+
+RESULT:
+A strong positive correlation between study time and exam scores was identified.
