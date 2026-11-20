@@ -1,0 +1,55 @@
+AIM:
+To perform bivariate analysis and build a Linear Regression model to predict house prices.
+
+ALGORITHM:
+1. Import Pandas, Matplotlib and LinearRegression.
+2. Create a dataset containing house area and price.
+3. Calculate the correlation between area and price.
+4. Plot a scatter graph.
+5. Train the Linear Regression model.
+6. Evaluate the model using R-squared.
+7. Predict the price of a new house.
+
+CODE:
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+df = pd.DataFrame({
+    "area": [800,1000,1200,1500,1800,2000],
+    "price": [16,20,24,30,36,40]
+})
+
+X = df[["area"]]
+y = df["price"]
+
+print("Correlation:", df["area"].corr(y))
+
+model = LinearRegression()
+model.fit(X,y)
+
+pred = model.predict(X)
+print("R2 Score:", r2_score(y,pred))
+
+plt.scatter(X,y)
+plt.plot(X,pred)
+plt.xlabel("House Area")
+plt.ylabel("Price")
+plt.show()
+
+a = float(input("Enter house area: "))
+print("Predicted price:", model.predict([[a]])[0])
+
+INPUT:
+Enter house area: 1600
+
+OUTPUT:
+Correlation: 1.0
+R2 Score: 1.0
+Predicted price: 32.0
+
+A scatter plot with a regression line is displayed.
+
+RESULT:
+Bivariate analysis and house price prediction were performed successfully.
