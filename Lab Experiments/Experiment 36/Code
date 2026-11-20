@@ -1,0 +1,10 @@
+import pandas as pd
+
+df = pd.read_csv("stock.csv")
+x = df["Close"]
+
+print("Mean:", x.mean())
+print("Standard Deviation:", x.std())
+print("Minimum:", x.min())
+print("Maximum:", x.max())
+print("Range:", x.max()-x.min())
