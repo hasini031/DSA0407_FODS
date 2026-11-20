@@ -1,0 +1,21 @@
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
+
+X = [[25,120,180],[30,130,190],[35,140,200],
+     [50,160,240],[55,170,250],[60,180,260],
+     [28,125,185],[58,175,255],[40,145,210],
+     [52,165,245]]
+
+y = ["Good","Good","Good","Bad","Bad",
+     "Bad","Good","Bad","Good","Bad"]
+
+X1,X2,y1,y2 = train_test_split(
+    X,y,test_size=0.2,random_state=42)
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X1,y1)
+
+pred = model.predict(X2)
+print("Predictions:", pred)
+print(classification_report(y2,pred,zero_division=0))
