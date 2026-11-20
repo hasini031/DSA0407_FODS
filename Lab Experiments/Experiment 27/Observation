@@ -1,0 +1,42 @@
+AIM:
+To predict customer churn using Logistic Regression.
+
+ALGORITHM:
+1. Import Pandas and LogisticRegression.
+2. Create a customer dataset.
+3. Separate features and churn status.
+4. Train the Logistic Regression model.
+5. Get new customer details.
+6. Predict whether the customer will churn.
+
+CODE:
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+
+df = pd.DataFrame({
+    "minutes": [100,200,300,400,500,600],
+    "contract": [12,24,6,3,2,1],
+    "churn": [0,0,0,1,1,1]
+})
+
+X = df[["minutes","contract"]]
+y = df["churn"]
+
+model = LogisticRegression()
+model.fit(X,y)
+
+m = float(input("Usage minutes: "))
+c = int(input("Contract duration: "))
+
+p = model.predict([[m,c]])
+print("Churn Prediction:", "Yes" if p[0]==1 else "No")
+
+INPUT:
+Usage minutes: 500
+Contract duration: 2
+
+OUTPUT:
+Churn Prediction: Yes
+
+RESULT:
+Customer churn was predicted successfully using Logistic Regression.
