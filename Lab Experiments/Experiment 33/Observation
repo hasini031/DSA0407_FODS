@@ -1,0 +1,49 @@
+AIM:
+To predict car prices using Linear Regression and identify influential features.
+
+ALGORITHM:
+1. Import Pandas and LinearRegression.
+2. Create a car dataset.
+3. Select engine size and horsepower as features.
+4. Train the Linear Regression model.
+5. Display model coefficients.
+6. Predict the price of a new car.
+7. Evaluate model performance using R-squared.
+
+CODE:
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+df = pd.DataFrame({
+    "engine": [1.0,1.2,1.5,1.8,2.0,2.2],
+    "hp": [70,85,100,120,140,160],
+    "price": [5,6,8,10,12,14]
+})
+
+X = df[["engine","hp"]]
+y = df["price"]
+
+model = LinearRegression()
+model.fit(X,y)
+
+pred = model.predict(X)
+print("R2 Score:", r2_score(y,pred))
+print("Coefficients:", model.coef_)
+
+e = float(input("Enter engine size: "))
+h = float(input("Enter horsepower: "))
+
+print("Predicted price:", model.predict([[e,h]])[0], "Lakhs")
+
+INPUT:
+Engine size: 1.6
+Horsepower: 110
+
+OUTPUT:
+R2 Score: Approximately 1.0
+Coefficients: Model coefficients are displayed.
+Predicted price: Approximately 9.0 Lakhs
+
+RESULT:
+Car prices were predicted successfully and influential features were identified using model coefficients.
