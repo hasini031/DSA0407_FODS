@@ -1,0 +1,46 @@
+AIM:
+To evaluate a classification model using accuracy, precision, recall and F1-score.
+
+ALGORITHM:
+1. Import the required libraries.
+2. Load the Iris dataset.
+3. Get feature names from the user.
+4. Split the dataset into training and testing data.
+5. Train a Logistic Regression model.
+6. Calculate evaluation metrics.
+
+CODE:
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+
+data = load_iris(as_frame=True)
+print(data.feature_names)
+
+features = input("Enter features separated by comma: ").split(",")
+features = [x.strip() for x in features]
+
+X = data.data[features]
+y = data.target
+
+X1,X2,y1,y2 = train_test_split(
+    X,y,test_size=0.2,random_state=42)
+
+model = LogisticRegression(max_iter=200)
+model.fit(X1,y1)
+
+pred = model.predict(X2)
+print(classification_report(y2,pred))
+
+INPUT:
+Enter features separated by comma:
+sepal length (cm),sepal width (cm)
+
+OUTPUT:
+Classification Report:
+Precision, Recall and F1-score are displayed for each class.
+Accuracy: Approximately 0.80
+
+RESULT:
+The classification model was evaluated successfully using performance metrics.
