@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+df = pd.DataFrame({
+    "area": [800,1000,1200,1500,1800,2000],
+    "price": [16,20,24,30,36,40]
+})
+
+X = df[["area"]]
+y = df["price"]
+
+print("Correlation:", X["area"].corr(y))
+
+model = LinearRegression()
+model.fit(X,y)
+
+pred = model.predict(X)
+print("R2 Score:", r2_score(y,pred))
+
+plt.scatter(X,y)
+plt.plot(X,pred)
+plt.show()
+
+a = float(input("Enter house area: "))
+print("Predicted price:", model.predict([[a]])[0])
