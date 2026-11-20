@@ -1,0 +1,43 @@
+AIM:
+To calculate and analyze temperature variability for different cities.
+
+ALGORITHM:
+1. Import Pandas.
+2. Create a dataset containing city temperatures.
+3. Calculate mean temperature for each city.
+4. Calculate standard deviation.
+5. Find the city with the highest temperature range.
+6. Find the city with the lowest standard deviation.
+7. Display the results.
+
+CODE:
+import pandas as pd
+
+df = pd.DataFrame({
+    "Chennai": [30,32,35,31,33],
+    "Delhi": [20,25,40,15,35],
+    "Mumbai": [28,29,30,28,29]
+})
+
+print("Mean:\n", df.mean())
+print("Standard Deviation:\n", df.std())
+
+ranges = df.max() - df.min()
+
+print("Highest Range:", ranges.idxmax())
+print("Most Consistent:", df.std().idxmin())
+
+INPUT:
+Temperature data for Chennai, Delhi and Mumbai is given in the code.
+
+OUTPUT:
+Mean:
+Chennai    32.2
+Delhi     27.0
+Mumbai    28.8
+
+Highest Range: Delhi
+Most Consistent: Mumbai
+
+RESULT:
+Mean, standard deviation and temperature ranges were calculated successfully.
