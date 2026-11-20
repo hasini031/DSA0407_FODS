@@ -1,0 +1,17 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "Study": [1,2,3,4,5,6],
+    "Score": [40,45,55,65,75,85]
+})
+
+print("Correlation:", df["Study"].corr(df["Score"]))
+
+plt.scatter(df["Study"],df["Score"])
+plt.xlabel("Study Hours")
+plt.ylabel("Exam Score")
+plt.show()
+
+plt.plot(df["Study"],df["Score"],marker="o")
+plt.show()
