@@ -1,0 +1,41 @@
+AIM:
+To segment e-commerce customers based on their purchasing behavior using K-Means clustering.
+
+ALGORITHM:
+1. Import Pandas and KMeans.
+2. Create customer data with purchase and browsing details.
+3. Apply K-Means clustering.
+4. Divide customers into three groups.
+5. Predict the segment of a new customer.
+6. Display the customer groups.
+
+CODE:
+import pandas as pd
+from sklearn.cluster import KMeans
+
+df = pd.DataFrame({
+    "purchase": [100,150,200,700,800,900,300,350,400],
+    "visits": [2,3,4,8,9,10,4,5,6]
+})
+
+model = KMeans(n_clusters=3, random_state=42, n_init=10)
+df["segment"] = model.fit_predict(df)
+
+print(df)
+
+p = float(input("Enter purchase amount: "))
+v = int(input("Enter visits: "))
+
+print("New customer segment:",
+      model.predict([[p,v]])[0])
+
+INPUT:
+Purchase amount: 750
+Visits: 8
+
+OUTPUT:
+Customer data is displayed with three segment labels.
+New customer segment: 2
+
+RESULT:
+E-commerce customers were successfully grouped into three segments using K-Means.
