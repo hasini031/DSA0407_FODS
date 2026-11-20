@@ -1,0 +1,22 @@
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+
+data = load_iris(as_frame=True)
+print(data.feature_names)
+
+f = input("Enter features separated by comma: ").split(",")
+f = [x.strip() for x in f]
+
+X = data.data[f]
+y = data.target
+
+X1,X2,y1,y2 = train_test_split(
+    X,y,test_size=0.2,random_state=42)
+
+model = LogisticRegression(max_iter=200)
+model.fit(X1,y1)
+
+pred = model.predict(X2)
+print(classification_report(y2,pred))
