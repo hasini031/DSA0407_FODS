@@ -1,0 +1,15 @@
+import pandas as pd
+
+df = pd.DataFrame({
+    "Chennai": [30,32,35,31,33],
+    "Delhi": [20,25,40,15,35],
+    "Mumbai": [28,29,30,28,29]
+})
+
+print("Mean:\n", df.mean())
+print("Standard Deviation:\n", df.std())
+
+r = df.max()-df.min()
+
+print("Highest Range:", r.idxmax())
+print("Most Consistent:", df.std().idxmin())
