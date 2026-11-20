@@ -1,0 +1,76 @@
+AIM:
+To analyze soccer player data using Pandas and visualize the distribution of players based on their positions.
+
+ALGORITHM:
+1. Import Pandas and Matplotlib.
+2. Create a dataset of soccer players.
+3. Store the data in a CSV file.
+4. Read the CSV file into a DataFrame.
+5. Find the top five players based on goals and salaries.
+6. Calculate average player age.
+7. Display players above average age.
+8. Visualize player positions using a bar chart.
+
+CODE:
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "Name": ["A","B","C","D","E","F"],
+    "Age": [22,25,28,30,24,35],
+    "Position": ["Forward","Midfielder","Defender",
+                 "Forward","Defender","Goalkeeper"],
+    "Goals": [20,10,5,25,8,2],
+    "Salary": [5000,4000,3000,6000,3500,2500]
+})
+
+df.to_csv("players.csv", index=False)
+df = pd.read_csv("players.csv")
+
+print("Top 5 Goals:")
+print(df.nlargest(5,"Goals")[["Name","Goals"]])
+
+print("Top 5 Salaries:")
+print(df.nlargest(5,"Salary")[["Name","Salary"]])
+
+avg = df["Age"].mean()
+print("Average Age:", avg)
+
+print("Above Average Age:")
+print(df[df["Age"] > avg]["Name"])
+
+df["Position"].value_counts().plot(kind="bar")
+plt.xlabel("Position")
+plt.ylabel("Number of Players")
+plt.title("Players by Position")
+plt.show()
+
+INPUT:
+Player details are created in the code and stored in players.csv.
+
+OUTPUT:
+Top 5 Goals:
+D    25
+A    20
+B    10
+E     8
+C     5
+
+Top 5 Salaries:
+D    6000
+A    5000
+B    4000
+E    3500
+C    3000
+
+Average Age: 27.33
+
+Above Average Age:
+C
+D
+F
+
+A bar chart showing the number of players in each position is displayed.
+
+RESULT:
+Soccer player data was analyzed successfully, and top players, average age and position distribution were displayed.
