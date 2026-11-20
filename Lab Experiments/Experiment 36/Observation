@@ -1,0 +1,42 @@
+AIM:
+To calculate and analyze the variability of stock prices using Python.
+
+ALGORITHM:
+1. Import Pandas.
+2. Read stock data from a CSV file.
+3. Calculate the mean closing price.
+4. Calculate standard deviation.
+5. Find minimum and maximum prices.
+6. Display stock price variability.
+
+CODE:
+import pandas as pd
+
+df = pd.read_csv("stock.csv")
+x = df["Close"]
+
+print("Mean:", x.mean())
+print("Standard Deviation:", x.std())
+print("Minimum:", x.min())
+print("Maximum:", x.max())
+print("Range:", x.max()-x.min())
+
+INPUT:
+CSV file (stock.csv):
+
+Close
+100
+105
+98
+110
+115
+
+OUTPUT:
+Mean: 105.6
+Standard Deviation: 6.69
+Minimum: 98
+Maximum: 115
+Range: 17
+
+RESULT:
+Stock price variability was calculated successfully using statistical measures.
